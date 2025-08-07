@@ -10,7 +10,7 @@ API_HASH = os.getenv('API_HASH')
 
 
 # PostgreSQL Configuration (Neon DB)
-NEON_URI = os.getenv('NEON_URI', 'postgresql://neondb_owner:npg_vyeSFHK7r3Eq@ep-snowy-sky-a1hx5dig-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require')
+NEON_URI = os.getenv('NEON_URI', 'postgresql://neondb_owner:npg_47XBIfzlKvmj@ep-broad-sky-a1rmt03x-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require&pool_timeout=10')
 
 CATBOX_USERHASH = os.getenv('CATBOX_USERHASH', '0d6e2b43bfd1b9b505ee6d3df')
 IMGUR_CLIENT_ID = os.getenv('IMGUR_CLIENT_ID', '')
@@ -26,3 +26,4 @@ OWNER_ID = 6055447708
 # Game Configuration
 STARTING_COINS = 100
 DAILY_REWARD = 50
+
