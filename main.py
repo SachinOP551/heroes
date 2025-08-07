@@ -164,7 +164,9 @@ app = Client(
     "marvel_collector_bot",
     api_id=API_ID,
     api_hash=API_HASH,
-    bot_token=TOKEN
+    bot_token=TOKEN,
+    workers=50
+    max_concurrent_transmissions=10
 )
 
 async def initialize_database():
