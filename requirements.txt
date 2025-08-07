@@ -12,3 +12,5 @@ catboxpy
 aiofiles
 psutil>=5.9.0
 redis>=4.5.0
+cloudinary
+
