@@ -130,6 +130,7 @@ async def tdtop_command(client: Client, message: Message):
                 collection_history = []
             # IMPORTANT: Count all 'collected' actions for today, regardless of current ownership
             today_count = 0
+            debug_entries = []
             for entry in collection_history:
                 try:
                     collected_at = entry.get('collected_at')
@@ -150,9 +151,12 @@ async def tdtop_command(client: Client, message: Message):
                         in_range = today <= collected_at_dt.astimezone(ist) < tomorrow
                     if in_range and entry.get('source', 'collected') == 'collected':
                         today_count += 1
+                        debug_entries.append(entry)
                 except Exception as e:
                     continue
+            # DEBUG: Print which entries are being counted for this user
             if today_count > 0:
+                print(f"[DEBUG] User {user_id} counted {today_count} collections today. Entries:", debug_entries)
                 collectors.append({
                     'first_name': user.get('first_name', 'Unknown'),
                     'user_id': user_id,
