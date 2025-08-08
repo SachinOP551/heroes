@@ -467,7 +467,7 @@ async def take_tokens_handler(client: Client, message: Message):
 async def pay_handler(client: Client, message: Message):
     await pay_command(client, message)
 
-@app.on_message(filters.command("shardspay", prefixes=["/", ".", "!"]))
+@app.on_message(filters.command("spay", prefixes=["/", ".", "!"]))
 @auto_register_user
 @require_database
 async def shards_pay_handler(client: Client, message: Message):
