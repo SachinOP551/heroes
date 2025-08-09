@@ -50,10 +50,6 @@ def admin_only(func):
                 
                 # Check if user is admin (owner, sudo, or og)
                 if not (is_owner(user_id) or await is_sudo(db, user_id) or await is_og(db, user_id)):
-                    await message.reply_text(
-                        "*❌ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ɪs ʀᴇsᴛʀɪᴄᴛᴇᴅ ᴛᴏ ᴀᴅᴍɪɴs ᴏɴʟʏ\\!*",
-                        parse_mode="markdown"
-                    )
                     return
             except Exception as db_error:
                 # If database is not initialized, just continue
@@ -236,4 +232,5 @@ def auto_register_user(func):
             print(f"Error in auto_register_user decorator for function {func.__name__}: {e}")
             # Don't send error message, just continue with the command
             return await func(client, message, *args, **kwargs)
+
     return wrapper
