@@ -114,7 +114,7 @@ async def sell_command(client: Client, message: Message):
         return
     if character_id not in user_data.get('characters', []):
         await message.reply_text(
-            "❌ You don't own this character!"
+            "<b>❌ You don't own this character!</b>"
         )
         return
     sell_price = SELL_PRICES.get(character['rarity'], 0)
@@ -145,9 +145,9 @@ async def sell_command(client: Client, message: Message):
     formatted_price = f"{sell_price:,}"
     rarity_emoji = get_rarity_emoji(character['rarity'])
     caption = (
-        f"{rarity_emoji} {character['name']}\n"
-        f"Price: {formatted_price} Tokens\n"
-        f"Are you sure you want to sell this Character?" + event_notice
+        f"<b>{rarity_emoji} {character['name']}</b>\n"
+        f"<b>Price: {formatted_price} Tokens</b>\n"
+        f"<b>Are you sure you want to sell this Character?</b>" + event_notice
     )
     photo = character.get('img_url', character.get('file_id'))
     if photo:
@@ -563,3 +563,4 @@ def setup_sell_handlers(app: Client):
     app.add_handler(filters.command("masssell")(masssell_command))
     app.add_handler(filters.callback_query(lambda _, __, query: query.data and (query.data.startswith("sell_") or query.data == "cancel_last_sell"))(handle_sell_callback))
     app.add_handler(filters.callback_query(lambda _, __, query: query.data and query.data.startswith("masssell_"))(handle_masssell_callback))
+
