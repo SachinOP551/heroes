@@ -428,7 +428,7 @@ async def collect_command(client: Client, message: Message):
                 
                 # Check if character is already being collected
                 if message_id in collecting_characters[chat_id]:
-                    await message.reply_text(f"ℹ Last Character Was Already Collected By <a href=\"tg://user?id={last_collected['collected_by_id']}\">{last_collected['collected_by_name']}</a>!")
+                    await message.reply_text(f"<b>ℹ Last Character Was Already Collected By</b> <a href=\"tg://user?id={last_collected['collected_by_id']}\">{last_collected['collected_by_name']}</a>!")
                     return
                 
                 # Check if user is already collecting this character
@@ -1234,5 +1234,6 @@ async def handle_single_message(client, message, current_time):
         return
 
 # Cleanup tasks removed
+
 
 # Cleanup tasks removed to prevent issues
