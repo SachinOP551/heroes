@@ -226,7 +226,7 @@ async def propose_command(client: Client, message: Message):
                     await message.reply_text(caption)
             else:
                 fail_text = (
-                    "<b>❌ Your proposal was rejected!</b>"
+                    "<b>❌ Your proposal was rejected. Try again later!</b>"
                 )
                 try:
                     await message.reply_text(fail_text)
@@ -692,4 +692,5 @@ async def ping_command(client: Client, message: Message):
     end = time.monotonic()
     latency = int((end - start) * 1000)
     await sent.edit_text(f"🏓 Pong! <b>{latency} ms</b>")
+
 
