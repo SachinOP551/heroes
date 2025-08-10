@@ -42,11 +42,11 @@ RARITY_PRICES = {
 ULTIMATE_SHARD_PRICE = 120000  # 120K shards
 
 STORE_IMAGE_URL = "https://ibb.co/cKVVS0wm"
-REFRESH_COST = 1
+REFRESH_COST = 35000
 
 # Format the store message as per the user's example
 # Now takes refreshes and max_refreshes
-MAX_REFRESHES = 7000
+MAX_REFRESHES = 4
 
 def format_store_message(chars, refreshes, refresh_cost=REFRESH_COST):
     # Safety check: filter out any characters with is_video=True that might have slipped through
@@ -570,3 +570,4 @@ async def refresh_all_stores_command(client: Client, message: Message):
         await db.update_user(user_id, {"store_offer": offer})
         updated += 1
     await message.reply(f"✅ Refreshed store for <b>{updated}</b> users.")
+
