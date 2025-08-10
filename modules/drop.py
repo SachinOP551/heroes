@@ -36,7 +36,7 @@ active_drops = {}
 # Clean deque-based spam tracking with size limits
 user_msgs = defaultdict(lambda: deque(maxlen=10))  # Reduced from 10 to prevent memory leaks
 SPAM_LIMIT = 6    # Reduced from 6 to be more strict
-SPAM_WINDOW = 2      # Reduced from 2 seconds
+SPAM_WINDOW = 1      # Reduced from 2 seconds
 message_counts = {}  # In-memory message counter
 last_drop_time = {}  # Track last drop time per chat
 drop_settings_cache = {}  # Cache for drop settings
@@ -1266,5 +1266,6 @@ async def handle_single_message(client, message, current_time):
         return
 
 # Cleanup tasks removed
+
 
 # Cleanup tasks removed to prevent issues
