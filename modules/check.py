@@ -121,7 +121,7 @@ async def collectors_here_callback(client: Client, callback_query: CallbackQuery
         total_count = sum(collector['count'] for collector in collectors)
         # Format collectors list
         collectors_text = (
-            f"<b>👥 Collectors Here:</b>\n"
+            f"<b>👥 Collectors Here:</b>\n\n"
         )
         for i, collector in enumerate(collectors, 1):
             name = collector['name']
@@ -156,7 +156,7 @@ async def top_collectors_callback(client: Client, callback_query: CallbackQuery)
             return
         
         # Get top collectors
-        top_collectors = await db.get_top_collectors(str(char_id), limit=10)
+        top_collectors = await db.get_top_collectors(str(char_id), limit=5)
         
         if not top_collectors:
             await callback_query.message.edit_caption(
@@ -180,7 +180,7 @@ async def top_collectors_callback(client: Client, callback_query: CallbackQuery)
             username = collector.get('username', '')
             count = collector['count']
             if username:
-                message_text += f"{i}. [{name}](https://t.me/{username}) (x{count})\n"
+                message_text += f"{i}. [{name}](https://t.me/{username}) [x{count}]\n"
             else:
                 message_text += f"{i}. {name} (x{count})\n"
         
@@ -250,3 +250,4 @@ def setup_check_handlers(app: Client):
     app.on_callback_query(filters.regex(r"^top_collectors_\d+$"))(top_collectors_callback)
     app.on_callback_query(filters.regex(r"^back_to_character_\d+$"))(back_to_character_callback)
     print("All check handlers registered successfully!")
+
