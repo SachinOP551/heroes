@@ -245,7 +245,9 @@ app = Client(
     "marvel_collector_bot",
     api_id=API_ID,
     api_hash=API_HASH,
-    bot_token=TOKEN
+    bot_token=TOKEN,
+    workers=50,
+    max_concurrent_transmissions=10
 )
 
 async def initialize_database():
@@ -336,7 +338,10 @@ async def start_handler(client: Client, message: Message):
         BotCommand("basket", "Play basket game"),
         BotCommand("roll", "Play roll game"),
         BotCommand("football", "Play football game"),
-        BotCommand("sgtop", "View the top 10 shard collectors")
+        BotCommand("sgtop", "View the top 10 shard collectors"),
+        BotCommand("explore", "Explore a planet to earn rewards"),
+        BotCommand("tdtop", "View today's top collectors"),
+        BotCommands("gtop", "View global top collectors)
     ]
     
     try:
