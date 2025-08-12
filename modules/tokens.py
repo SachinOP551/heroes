@@ -710,7 +710,7 @@ explore_last_used = {}
 explore_message_owners = {}  # Track who owns each explore message
 explore_message_timestamps = {}  # Track when messages were created
 explore_message_chats = {}  # Track chat_id for each message
-EXPLORE_COOLDOWN = 150  # 3 minutes
+EXPLORE_COOLDOWN = 90  # 3 minutes
 EXPLORE_MESSAGE_EXPIRY = 300  # 5 minutes - messages expire after this time
 
 @check_banned
@@ -982,4 +982,5 @@ async def cleanup_expired_explore_messages(client: Client = None):
 
 
             
+
           
