@@ -341,7 +341,7 @@ async def start_handler(client: Client, message: Message):
         BotCommand("sgtop", "View the top 10 shard collectors"),
         BotCommand("explore", "Explore a planet to earn rewards"),
         BotCommand("tdtop", "View today's top collectors"),
-        BotCommands("gtop", "View global top collectors")
+        BotCommand("gtop", "View global top collectors")
     ]
     
     try:
