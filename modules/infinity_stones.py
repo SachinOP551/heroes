@@ -363,12 +363,12 @@ async def attempt_infinity_stone_drop_collection(user_id: int, stone_character_i
             owned_count = 0
             total_stones = len(INFINITY_STONES)
         ui_message = (
-            "╔══════════════════════╗\n"
-            "   🎉 INFINITY STONE 🎉\n"
-            f"        {stone_info['emoji']} {stone_info['name']}\n"
-            "╚══════════════════════╝\n"
-            f"💎 Progress toward the Gauntlet: {owned_count}/{total_stones}"
-        )
+                "╔══════════════════════╗\n"
+                "   🎉 <b>INFINITY STONE</b> 🎉\n\n"
+                f"        {stone_info['emoji']} {stone_info['name']}\n"
+                "╚══════════════════════╝\n"
+                f"👑 Progress towards the Supreme: {owned_count}/{total_stones}"
+            )
         return True, ui_message, stone_info
     else:
         return False, "❌ Error adding stone to inventory. Please try again.", None
@@ -447,12 +447,12 @@ async def attempt_stone_collection_by_short_name(user_id: int, short_name: str, 
             owned_count = 0
             total_stones = len(INFINITY_STONES)
         ui_message = (
-            "╔══════════════════════╗\n"
-            "   🎉 INFINITY STONE 🎉\n"
-            f"        {stone_info['emoji']} {stone_info['name']}\n"
-            "╚══════════════════════╝\n"
-            f"💎 Progress toward the Gauntlet: {owned_count}/{total_stones}"
-        )
+                "╔══════════════════════╗\n"
+                "   🎉 <b>INFINITY STONE</b> 🎉\n\n"
+                f"        {stone_info['emoji']} {stone_info['name']}\n"
+                "╚══════════════════════╝\n"
+                f"👑 Progress towards the Supreme: {owned_count}/{total_stones}"
+            )
         return True, ui_message, stone_info
     else:
         return False, "❌ Error adding stone to inventory. Please try again.", None
@@ -958,7 +958,7 @@ async def handle_gauntlet_confirmation(client: Client, callback_query):
         
         if success:
             # Send success message with the gauntlet image
-            gauntlet_image_url = "https://i.ibb.co/HTv4G1Y6/photo-2025-08-13-13-38-25.jpg"
+            gauntlet_image_url = "https://i.ibb.co/fzP8z90P/photo-2025-08-13-20-48-14-Picsart-Ai-Image-Enhancer.jpg"
             
             try:
                 await callback_query.edit_message_media(
@@ -969,7 +969,6 @@ async def handle_gauntlet_confirmation(client: Client, callback_query):
                             "**Cost:** 50,00,000 tokens + 15,000 shards\n\n"
                             "The legendary gauntlet has been crafted!\n"
                             "You can now collect the Infinity Stones.\n\n"
-                            "**Try:** <code>/collect space</code>"
                         )
                     )
                 )
